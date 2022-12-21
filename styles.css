@@ -1,0 +1,143 @@
+body {
+  background-color: rgb(203, 216, 216);
+  padding: 30px 0;
+}
+
+.game-area {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+  gap: 10px;
+  background-color: rgb(78, 51, 233);
+  justify-content: center;
+
+  position: relative;
+  width: min-content;
+  margin: 0 auto;
+}
+
+.square {
+  background-color: rgb(106, 218, 149);
+  width: 200px;
+  height: 200px;
+}
+
+.btnX {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  font-size: 130px;
+  padding: 0;
+  border: 0;
+}
+
+.bi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.bi-circle {
+  color: green;
+}
+
+.bi-x-lg {
+  color: red;
+}
+
+
+/********************* LINES *********************/
+.ver {
+  display: none;
+  background-color: black;
+  width: 10px;
+  height: 90%;
+  z-index: 10;
+}
+
+.hor {
+  display: none;
+  background-color: black;
+  width: 90%;
+  height: 10px;
+  z-index: 10;
+}
+
+/* Vertical Lines */
+#verCen {
+  display: none;
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#verLeft {
+  position: absolute;
+  top: 4%;
+  left: 16%;
+}
+
+#verRight {
+  position: absolute;
+  top: 4%;
+  right: 16%;
+}
+
+/* Horizontal Lines */
+#horTop {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#horMid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#horBot {
+  position: absolute;
+  bottom: 16%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* Cross Lines */
+.to-right,
+.to-left {
+  display: none;
+  border-top: 10px solid black;
+  width: 750px;
+
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 10;
+
+  position: absolute;
+  top: 50%;
+}
+
+.to-right {
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+
+  position: absolute;
+  left: -70px;
+}
+
+.to-left {
+  position: absolute;
+  right: -70px;
+}
