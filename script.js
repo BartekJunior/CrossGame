@@ -11,25 +11,38 @@ const horTop = document.getElementById("horTop");
 const horMid = document.getElementById("horMid");
 const horBot = document.getElementById("horBot");
 
-const circle1 = document.getElementById("circle1");
-const circle2 = document.getElementById("circle2");
-const circle3 = document.getElementById("circle3");
-const circle4 = document.getElementById("circle4");
-const circle5 = document.getElementById("circle5");
-const circle6 = document.getElementById("circle6");
-const circle7 = document.getElementById("circle7");
-const circle8 = document.getElementById("circle8");
-const circle9 = document.getElementById("circle9");
+const myCircle = [];
+for (let i = 1; i < 10; i++) {
+  myCircle[i] = document.getElementById('circle' + i)
+};
 
-const cross1 = document.getElementById("cross1");
-const cross2 = document.getElementById("cross2");
-const cross3 = document.getElementById("cross3");
-const cross4 = document.getElementById("cross4");
-const cross5 = document.getElementById("cross5");
-const cross6 = document.getElementById("cross6");
-const cross7 = document.getElementById("cross7");
-const cross8 = document.getElementById("cross8");
-const cross9 = document.getElementById("cross9");
+const myCross = [];
+for (let i = 1; i < 10; i++) {
+  myCross[i] = document.getElementById('cross' + i)
+};
+
+console.log(myCircle);
+console.log(myCross);
+
+// const circle1 = document.getElementById("circle1");
+// const circle2 = document.getElementById("circle2");
+// const circle3 = document.getElementById("circle3");
+// const circle4 = document.getElementById("circle4");
+// const circle5 = document.getElementById("circle5");
+// const circle6 = document.getElementById("circle6");
+// const circle7 = document.getElementById("circle7");
+// const circle8 = document.getElementById("circle8");
+// const circle9 = document.getElementById("circle9");
+
+// const cross1 = document.getElementById("cross1");
+// const cross2 = document.getElementById("cross2");
+// const cross3 = document.getElementById("cross3");
+// const cross4 = document.getElementById("cross4");
+// const cross5 = document.getElementById("cross5");
+// const cross6 = document.getElementById("cross6");
+// const cross7 = document.getElementById("cross7");
+// const cross8 = document.getElementById("cross8");
+// const cross9 = document.getElementById("cross9");
 
 let count = 0;
 const elements = document.querySelectorAll(".square");
