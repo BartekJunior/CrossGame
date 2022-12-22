@@ -11,7 +11,6 @@ const horTop = document.getElementById("horTop");
 const horMid = document.getElementById("horMid");
 const horBot = document.getElementById("horBot");
 
-
 const circle1 = document.getElementById("circle1");
 const circle2 = document.getElementById("circle2");
 const circle3 = document.getElementById("circle3");
@@ -32,109 +31,17 @@ const cross7 = document.getElementById("cross7");
 const cross8 = document.getElementById("cross8");
 const cross9 = document.getElementById("cross9");
 
-
-
 let count = 0;
 const elements = document.querySelectorAll(".square");
-
 
 elements.forEach((el) => {
   el.addEventListener("click", function () {
     console.log(count);
-
-    if (
-      (window.getComputedStyle(circle2).display === `block` &&
-      window.getComputedStyle(circle5).display === `block` &&
-      window.getComputedStyle(circle8).display === `block`) ||
-
-      (window.getComputedStyle(cross2).display === `block` &&
-      window.getComputedStyle(cross5).display === `block` &&
-      window.getComputedStyle(cross8).display === `block`)
-    ) {
-      verCen.style.display = "block";
-
-    } else if (
-      (window.getComputedStyle(circle1).display === `block` &&
-      window.getComputedStyle(circle4).display === `block` &&
-      window.getComputedStyle(circle7).display === `block`) ||
-
-      (window.getComputedStyle(cross1).display === `block` &&
-      window.getComputedStyle(cross4).display === `block` &&
-      window.getComputedStyle(cross7).display === `block`)
-    ) {
-      verLeft.style.display = "block";
-
-    } else if (
-      (window.getComputedStyle(circle3).display === `block` &&
-      window.getComputedStyle(circle6).display === `block` &&
-      window.getComputedStyle(circle9).display === `block`) ||
-
-      (window.getComputedStyle(cross3).display === `block` &&
-      window.getComputedStyle(cross6).display === `block` &&
-      window.getComputedStyle(cross9).display === `block`)
-    ) {
-      verRight.style.display = "block";
-
-
-    } else if (
-      (window.getComputedStyle(circle1).display === `block` &&
-      window.getComputedStyle(circle2).display === `block` &&
-      window.getComputedStyle(circle3).display === `block`) ||
-
-      (window.getComputedStyle(cross1).display === `block` &&
-      window.getComputedStyle(cross2).display === `block` &&
-      window.getComputedStyle(cross3).display === `block`)
-    ) {
-      horTop.style.display = "block";
-
-    } else if (
-      (window.getComputedStyle(circle4).display === `block` &&
-      window.getComputedStyle(circle5).display === `block` &&
-      window.getComputedStyle(circle6).display === `block`) ||
-
-      (window.getComputedStyle(cross4).display === `block` &&
-      window.getComputedStyle(cross5).display === `block` &&
-      window.getComputedStyle(cross6).display === `block`)
-    ) {
-      horMid.style.display = "block";
-
-    } else if (
-      (window.getComputedStyle(circle7).display === `block` &&
-      window.getComputedStyle(circle8).display === `block` &&
-      window.getComputedStyle(circle9).display === `block`) ||
-
-      (window.getComputedStyle(cross7).display === `block` &&
-      window.getComputedStyle(cross8).display === `block` &&
-      window.getComputedStyle(cross9).display === `block`)
-    ) {
-      horBot.style.display = "block";
-
-    } else if (
-      (window.getComputedStyle(circle1).display === `block` &&
-      window.getComputedStyle(circle5).display === `block` &&
-      window.getComputedStyle(circle9).display === `block`) ||
-
-      (window.getComputedStyle(cross1).display === `block` &&
-      window.getComputedStyle(cross5).display === `block` &&
-      window.getComputedStyle(cross9).display === `block`)
-    ) {
-      crossLine2.style.display = "block";
-
-    } else if (
-      (window.getComputedStyle(circle3).display === `block` &&
-      window.getComputedStyle(circle5).display === `block` &&
-      window.getComputedStyle(circle7).display === `block`) ||
-
-      (window.getComputedStyle(cross3).display === `block` &&
-      window.getComputedStyle(cross5).display === `block` &&
-      window.getComputedStyle(cross7).display === `block`)
-    ) {
-      crossLine1.style.display = "block";
-    }
-
-    return count;
   });
 });
+
+
+
 
 const changeDisplay = function (itemID) {
   const circle = document.getElementById("circle" + itemID);
@@ -153,23 +60,114 @@ const changeDisplay = function (itemID) {
   }
 };
 
+//     if (
+//       (window.getComputedStyle(circle2).display === `block` &&
+//       window.getComputedStyle(circle5).display === `block` &&
+//       window.getComputedStyle(circle8).display === `block`) ||
 
+//       (window.getComputedStyle(cross2).display === `block` &&
+//       window.getComputedStyle(cross5).display === `block` &&
+//       window.getComputedStyle(cross8).display === `block`)
+//     ) {
+//       verCen.style.display = "block";
 
+//     } else if (
+//       (window.getComputedStyle(circle1).display === `block` &&
+//       window.getComputedStyle(circle4).display === `block` &&
+//       window.getComputedStyle(circle7).display === `block`) ||
+
+//       (window.getComputedStyle(cross1).display === `block` &&
+//       window.getComputedStyle(cross4).display === `block` &&
+//       window.getComputedStyle(cross7).display === `block`)
+//     ) {
+//       verLeft.style.display = "block";
+
+//     } else if (
+//       (window.getComputedStyle(circle3).display === `block` &&
+//       window.getComputedStyle(circle6).display === `block` &&
+//       window.getComputedStyle(circle9).display === `block`) ||
+
+//       (window.getComputedStyle(cross3).display === `block` &&
+//       window.getComputedStyle(cross6).display === `block` &&
+//       window.getComputedStyle(cross9).display === `block`)
+//     ) {
+//       verRight.style.display = "block";
+
+//     } else if (
+//       (window.getComputedStyle(circle1).display === `block` &&
+//       window.getComputedStyle(circle2).display === `block` &&
+//       window.getComputedStyle(circle3).display === `block`) ||
+
+//       (window.getComputedStyle(cross1).display === `block` &&
+//       window.getComputedStyle(cross2).display === `block` &&
+//       window.getComputedStyle(cross3).display === `block`)
+//     ) {
+//       horTop.style.display = "block";
+
+//     } else if (
+//       (window.getComputedStyle(circle4).display === `block` &&
+//       window.getComputedStyle(circle5).display === `block` &&
+//       window.getComputedStyle(circle6).display === `block`) ||
+
+//       (window.getComputedStyle(cross4).display === `block` &&
+//       window.getComputedStyle(cross5).display === `block` &&
+//       window.getComputedStyle(cross6).display === `block`)
+//     ) {
+//       horMid.style.display = "block";
+
+//     } else if (
+//       (window.getComputedStyle(circle7).display === `block` &&
+//       window.getComputedStyle(circle8).display === `block` &&
+//       window.getComputedStyle(circle9).display === `block`) ||
+
+//       (window.getComputedStyle(cross7).display === `block` &&
+//       window.getComputedStyle(cross8).display === `block` &&
+//       window.getComputedStyle(cross9).display === `block`)
+//     ) {
+//       horBot.style.display = "block";
+
+//     } else if (
+//       (window.getComputedStyle(circle1).display === `block` &&
+//       window.getComputedStyle(circle5).display === `block` &&
+//       window.getComputedStyle(circle9).display === `block`) ||
+
+//       (window.getComputedStyle(cross1).display === `block` &&
+//       window.getComputedStyle(cross5).display === `block` &&
+//       window.getComputedStyle(cross9).display === `block`)
+//     ) {
+//       crossLine2.style.display = "block";
+
+//     } else if (
+//       (window.getComputedStyle(circle3).display === `block` &&
+//       window.getComputedStyle(circle5).display === `block` &&
+//       window.getComputedStyle(circle7).display === `block`) ||
+
+//       (window.getComputedStyle(cross3).display === `block` &&
+//       window.getComputedStyle(cross5).display === `block` &&
+//       window.getComputedStyle(cross7).display === `block`)
+//     ) {
+//       crossLine1.style.display = "block";
+//     }
+
+//     return count;
+//   });
+// });
 
 
 
 // Test for Circles display block
-document.addEventListener("click", function () {
-  console.log(window.getComputedStyle(circle2).display);
-  console.log(window.getComputedStyle(circle5).display);
-  console.log(window.getComputedStyle(circle8).display);
 
-  console.log(
-    window.getComputedStyle(circle2).display === `block` &&
-      window.getComputedStyle(circle5).display === `block` &&
-      window.getComputedStyle(circle8).display === `block`
-  );
-});
+// document.addEventListener("click", function () {
+//   console.log(window.getComputedStyle(circle2).display);
+//   console.log(window.getComputedStyle(circle5).display);
+//   console.log(window.getComputedStyle(circle8).display);
+
+//   console.log(
+//     window.getComputedStyle(circle2).display === `block` &&
+//       window.getComputedStyle(circle5).display === `block` &&
+//       window.getComputedStyle(circle8).display === `block`
+//   );
+// });
 
 // STYLE AFTER CLICK ON ELEMENT IS BLOCK!!! WORKS!
 
