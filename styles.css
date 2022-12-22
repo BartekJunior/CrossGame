@@ -141,3 +141,26 @@ body {
   position: absolute;
   right: -70px;
 }
+
+
+/* ---------------------------------------------------------- */
+
+.test-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 200px;
+}
+
+.test-div {
+  background-color: rgb(175, 110, 31);
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+
+#priority .bi-bell {
+  position: static;
+  display: block;
+  font-size: 30px;
+}

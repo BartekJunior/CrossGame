@@ -140,8 +140,6 @@ const changeDisplay = function (itemID) {
 };
 
 
-
-
 // Test for Circles display block
 
 // document.addEventListener("click", function () {
@@ -167,3 +165,29 @@ const changeDisplay = function (itemID) {
 //   const boolean1 = window.getComputedStyle(test).display === `none`;
 //   console.log(boolean1);
 // });
+
+
+const myDivs = document.querySelectorAll('.test-div');
+const myBells = document.querySelectorAll('.bi-bell');
+
+myBells[0].addEventListener('click', function() {
+  myBells[1].style.background = 'green';
+  myBells[2].style.display = 'none';
+  count++;
+  console.log(count);
+})
+
+
+// myDivs.forEach((el) => {
+//   el.addEventListener('click', function() {
+//     console.log('click');
+//   })
+// })
+
+
+
+  // elements.forEach((el) => {
+  //   el.addEventListener("click", function () {
+  //     console.log(count);
+  //   });
+  // });
