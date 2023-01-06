@@ -155,12 +155,68 @@ body {
 .test-div {
   background-color: rgb(175, 110, 31);
   width: 100px;
-  height: 50px;
+  min-height: 52px;
+  height: min-content;
   text-align: center;
 }
 
 #priority .bi-bell {
   position: static;
   display: block;
-  font-size: 30px;
+  font-size: 35px;
+}
+
+#priority .bi-bell-js {
+  background-color: rgb(161, 92, 97);
+  color: white;
+}
+
+
+
+
+
+
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+  width: max-content;
+  min-height: 52px;
+}
+#counterPink {
+  background-color: rgb(255, 100, 200);
+}
+#counterRed {
+  background-color: rgb(255, 50, 50);
+}
+#counterGreen {
+  background-color: rgb(30, 255, 0);
+}
+
+
+
+
+#colorDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(123, 168, 81);
+  width: 100px;
+  min-height: 52px;
+  height: min-content;
+  font-size: 20px;
+}
+
+
+
+#madafaka {
+  height: 100px;
+  background-color: aqua;
+}
+
+.new-class {
+  width: 100px;
 }
