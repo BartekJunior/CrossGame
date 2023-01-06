@@ -196,6 +196,16 @@ body {
   background-color: rgb(30, 255, 0);
 }
 
+.pink-class {
+  background-color: rgb(255, 100, 200);
+}
+.red-class {
+  background-color: rgb(255, 50, 50);
+}
+.green-class {
+  background-color: rgb(30, 255, 0);
+}
+
 
 
 
@@ -214,7 +224,7 @@ body {
 
 #madafaka {
   height: 100px;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 .new-class {

@@ -149,17 +149,16 @@ const changeDisplay = function (itemID) {
 
 // -------------- MY BELLS --------------
 
-
 const colorDiv = document.getElementById("colorDiv");
 const colorDivStyle = window.getComputedStyle(colorDiv);
 
-let value1 = colorDivStyle.getPropertyValue('font-size');
-let value2 = colorDivStyle.getPropertyValue('display');
-let value3 = colorDivStyle.getPropertyValue('justify-content');
-let value4 = colorDivStyle.getPropertyValue('align-items');
-let value5 = colorDivStyle.getPropertyValue('width');
-let value6 = colorDivStyle.getPropertyValue('height');
-let value7 = colorDivStyle.getPropertyValue('background-color');
+let value1 = colorDivStyle.getPropertyValue("font-size");
+let value2 = colorDivStyle.getPropertyValue("display");
+let value3 = colorDivStyle.getPropertyValue("justify-content");
+let value4 = colorDivStyle.getPropertyValue("align-items");
+let value5 = colorDivStyle.getPropertyValue("width");
+let value6 = colorDivStyle.getPropertyValue("height");
+let value7 = colorDivStyle.getPropertyValue("background-color");
 console.log(value1);
 console.log(value2);
 console.log(value3);
@@ -168,82 +167,106 @@ console.log(value5);
 console.log(value6);
 console.log(value7);
 
-
 colorDiv.addEventListener("click", function () {
-  if (value3 !== 'left' || value1 !== `15px` || value7 !== `blue`) {
+  if (value3 !== "left" || value1 !== `15px` || value7 !== `blue`) {
     colorDiv.style.fontSize = `15px`;
     colorDiv.style.justifyContent = `left`;
     colorDiv.style.backgroundColor = `blue`;
-    colorDiv.style.setProperty('width', '150px');
+    colorDiv.style.setProperty("width", "150px");
   } else {
     console.log(`shit`);
   }
 });
 
-
 // -----------------------------------------------------------
 
+// CHANGE DIV COLOR ALMOST WORKING
+
+// let myDivs = document.querySelectorAll(".test-div");
+// let myBells = document.querySelectorAll(".bi-bell");
+// myDivs = Array.from(myDivs);
+// myBells = Array.from(myBells);
+
+// const counterPink = document.getElementById('counterPink');
+// const counterRed = document.getElementById('counterRed');
+// const counterGreen = document.getElementById('counterGreen');
+
+// let valuePink = 0;
+// let valueRed = 0;
+// let valueGreen = 0;
+
+// myDivs.forEach((el) => {
+//   el.addEventListener("click", function () {
+//     const myStyle = window.getComputedStyle(el);
+
+//     if (myStyle.getPropertyValue('background-color') === 'rgb(175, 110, 31)') {
+//       el.style.backgroundColor = 'rgb(255, 100, 200)';
+//       console.log(myStyle.getPropertyValue('background-color'));
+
+//     } else if (myStyle.getPropertyValue('background-color') === 'rgb(255, 100, 200)') {
+//       el.style.backgroundColor = 'rgb(255, 50, 50)';
+//       console.log(myStyle.getPropertyValue('background-color'));
+
+//     } else if (myStyle.getPropertyValue('background-color') === 'rgb(255, 50, 50)') {
+//       el.style.backgroundColor = 'rgb(30, 255, 0)';
+//       console.log(myStyle.getPropertyValue('background-color'));
+//     }
+
+//     if (myStyle.getPropertyValue('background-color') === 'rgb(255, 100, 200)') {
+//       valuePink++;
+//     }
+//     if (myStyle.getPropertyValue('background-color') === 'rgb(255, 50, 50)') {
+//       valueRed++;
+//     }
+//     if (myStyle.getPropertyValue('background-color') === 'rgb(30, 255, 0)') {
+//       valueGreen++;
+//     }
+
+//     counterPink.innerHTML = valuePink
+//     counterRed.innerHTML = valueRed;
+//     counterGreen.innerHTML = valueGreen;
+//   });
+// });
 
 let myDivs = document.querySelectorAll(".test-div");
 let myBells = document.querySelectorAll(".bi-bell");
 myDivs = Array.from(myDivs);
 myBells = Array.from(myBells);
 
+const madafaka = document.getElementById("madafaka");
 
 const counterPink = document.getElementById('counterPink');
 const counterRed = document.getElementById('counterRed');
 const counterGreen = document.getElementById('counterGreen');
 
-let valuePink = 0;
-let valueRed = 0;
-let valueGreen = 0;
-
-
+// const changeColor = function() {
+// madafaka.classList.add('pink-class');
+// }
 
 myDivs.forEach((el) => {
   el.addEventListener("click", function () {
+
     const myStyle = window.getComputedStyle(el);
 
-    if (myStyle.getPropertyValue('background-color') === 'rgb(175, 110, 31)') {
-      el.style.backgroundColor = 'rgb(255, 100, 200)';
-      console.log(myStyle.getPropertyValue('background-color'));
+    if (myStyle.getPropertyValue("background-color") === "rgb(175, 110, 31)") {
+      el.classList.add("pink-class");
+      console.log(myStyle.getPropertyValue("background-color"));
 
-    } else if (myStyle.getPropertyValue('background-color') === 'rgb(255, 100, 200)') {
-      el.style.backgroundColor = 'rgb(255, 50, 50)';
-      console.log(myStyle.getPropertyValue('background-color'));
+    } else if (myStyle.getPropertyValue("background-color") === "rgb(255, 100, 200)") {
+      el.classList.add("red-class");
+      el.classList.remove("pink-class");
+      console.log(myStyle.getPropertyValue("background-color"));
 
-    } else if (myStyle.getPropertyValue('background-color') === 'rgb(255, 50, 50)') {
-      el.style.backgroundColor = 'rgb(30, 255, 0)';
-      console.log(myStyle.getPropertyValue('background-color'));
- 
+    } else if (myStyle.getPropertyValue("background-color") === "rgb(255, 50, 50)") {
+      el.classList.add("green-class");
+      el.classList.remove("red-class");
+      console.log(myStyle.getPropertyValue("background-color"));
     }
-    
-    if (myStyle.getPropertyValue('background-color') === 'rgb(255, 100, 200)') {
-      valuePink++;
-    }
-    if (myStyle.getPropertyValue('background-color') === 'rgb(255, 50, 50)') {
-      valueRed++;
-    }
-    if (myStyle.getPropertyValue('background-color') === 'rgb(30, 255, 0)') {
-      valueGreen++;
-    }
-
-    counterPink.innerHTML = valuePink
-    counterRed.innerHTML = valueRed;
-    counterGreen.innerHTML = valueGreen;
-
+    counterPink.innerHTML = document.querySelectorAll(".pink-class").length;
+    counterRed.innerHTML = document.querySelectorAll(".red-class").length;
+    counterGreen.innerHTML = document.querySelectorAll(".green-class").length;
   });
 });
-
-
-
-myDivs.forEach((el) => {
-  el.addEventListener('click', function() {
-
-  });
-});
-
-
 
 
 // const mDiv = document.getElementById("madafaka");
@@ -256,9 +279,6 @@ myDivs.forEach((el) => {
 // };
 
 // myBells[1].addEventListener("click", buttonPressed);
-
-
-
 
 // const divPressed = function (e) {
 //   console.log(e);
