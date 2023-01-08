@@ -228,20 +228,19 @@ colorDiv.addEventListener("click", function () {
 //   });
 // });
 
+
+
+// CHANGE DIV COLOR WORKS!!!!!!!!!!!
+
 let myDivs = document.querySelectorAll(".test-div");
 let myBells = document.querySelectorAll(".bi-bell");
 myDivs = Array.from(myDivs);
 myBells = Array.from(myBells);
 
-const madafaka = document.getElementById("madafaka");
-
 const counterPink = document.getElementById('counterPink');
 const counterRed = document.getElementById('counterRed');
 const counterGreen = document.getElementById('counterGreen');
 
-// const changeColor = function() {
-// madafaka.classList.add('pink-class');
-// }
 
 myDivs.forEach((el) => {
   el.addEventListener("click", function () {
@@ -269,33 +268,7 @@ myDivs.forEach((el) => {
 });
 
 
-// const mDiv = document.getElementById("madafaka");
-// mDiv.classList.add("new-class");
-
-// const buttonPressed = (e) => {
-//   console.log("Bell 2 has been pressed");
-//   console.log(e.target);
-//   console.log(typeof e.target);
-// };
-
-// myBells[1].addEventListener("click", buttonPressed);
-
-// const divPressed = function (e) {
-//   console.log(e);
-// }
-// myBells[1].addEventListener("click", divPressed);
-
-// myDivs.forEach((el) => {
-//   el.addEventListener('click', function() {
-//     console.log('click');
-//   })
-// })
-
-// elements.forEach((el) => {
-//   el.addEventListener("click", function () {
-//     console.log(count);
-//   });
-// });
+// ---------------------------------------------------------------
 
 const newObject = {
   name: "Bartek",
