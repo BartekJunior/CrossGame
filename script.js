@@ -11,6 +11,22 @@ const horTop = document.getElementById("horTop");
 const horMid = document.getElementById("horMid");
 const horBot = document.getElementById("horBot");
 
+const hmStyle = window.getComputedStyle(horMid);
+const hmDisplay = hmStyle.getPropertyValue(`display`);
+console.log(hmDisplay);
+
+
+const linesID = [verLeft, verCen, verRight, horTop, horMid, horBot, crossLine1, crossLine2];
+const styleLines = [];
+const styleDisplay = [];
+
+for (let i = 0; i < 8; i++) {
+  styleLines[i] = window.getComputedStyle(linesID[i]);
+  styleDisplay[i] = styleLines[i].getPropertyValue(`display`);
+}
+
+
+
 let mySquare0 = document.querySelectorAll(".square");
 mySquare0 = Array.from(mySquare0);
 const crossPlayer = document.getElementById(`crossPlayer`);
@@ -24,15 +40,7 @@ for (let i = 1; i < 10; i++) {
   mySquare[i] = mySquare0[i - 1];
 }
 
-
-
-
-mySquare.forEach((el) => {
-  el.addEventListener("click", showIcon, once);
- 
-});
-
-function checkWinCross(a, b, c) {
+const checkWinCross = function(a, b, c) {
   if (
     mySquare[a].classList.contains(`bi-x-lg`) &&
     mySquare[b].classList.contains(`bi-x-lg`) &&
@@ -43,7 +51,7 @@ function checkWinCross(a, b, c) {
   }
 }
 
-function checkWincircle(a, b, c) {
+const checkWincircle = function(a, b, c) {
   if (
     mySquare[a].classList.contains(`bi-circle`) &&
     mySquare[b].classList.contains(`bi-circle`) &&
@@ -53,6 +61,15 @@ function checkWincircle(a, b, c) {
     return true;
   }
 }
+
+
+mySquare.forEach((el) => {
+    el.addEventListener("click", showIcon, once);
+  
+});
+
+
+
 
 function showIcon(X) {
   counter % 2 === 0
@@ -96,6 +113,13 @@ function showIcon(X) {
   } else if (checkWincircle(3, 5, 7)) {
     crossLine1.style.display = `block`;
   }
+
+  console.log(styleDisplay[0]);
+
+  // if (styleDisplay.includes(`block`)) {
+  //   console.log(`block!!!!!!!!!!!!`);
+  // }
+
 }
 
 // mySquare.forEach(el => {
@@ -114,34 +138,41 @@ function showIcon(X) {
 // ---------------------------- MY DIV COLOR ----------------------------
 // ---------------------------- MY DIV COLOR ----------------------------
 
-const colorDiv = document.getElementById("colorDiv");
-const colorDivStyle = window.getComputedStyle(colorDiv);
 
-let value1 = colorDivStyle.getPropertyValue("font-size");
-let value2 = colorDivStyle.getPropertyValue("display");
-let value3 = colorDivStyle.getPropertyValue("justify-content");
-let value4 = colorDivStyle.getPropertyValue("align-items");
-let value5 = colorDivStyle.getPropertyValue("width");
-let value6 = colorDivStyle.getPropertyValue("height");
-let value7 = colorDivStyle.getPropertyValue("background-color");
-console.log(value1);
-console.log(value2);
-console.log(value3);
-console.log(value4);
-console.log(value5);
-console.log(value6);
-console.log(value7);
 
-colorDiv.addEventListener("click", function () {
-  if (value3 !== "left" || value1 !== `15px` || value7 !== `blue`) {
-    colorDiv.style.fontSize = `15px`;
-    colorDiv.style.justifyContent = `left`;
-    colorDiv.style.backgroundColor = `blue`;
-    colorDiv.style.setProperty("width", "150px");
-  } else {
-    console.log(`shit`);
-  }
-});
+
+// const colorDiv = document.getElementById("colorDiv");
+// const colorDivStyle = window.getComputedStyle(colorDiv);
+
+// let value1 = colorDivStyle.getPropertyValue("font-size");
+// let value2 = colorDivStyle.getPropertyValue("display");
+// let value3 = colorDivStyle.getPropertyValue("justify-content");
+// let value4 = colorDivStyle.getPropertyValue("align-items");
+// let value5 = colorDivStyle.getPropertyValue("width");
+// let value6 = colorDivStyle.getPropertyValue("height");
+// let value7 = colorDivStyle.getPropertyValue("background-color");
+// console.log(value1);
+// console.log(value2);
+// console.log(value3);
+// console.log(value4);
+// console.log(value5);
+// console.log(value6);
+// console.log(value7);
+
+// colorDiv.addEventListener("click", function () {
+//   if (value3 !== "left" || value1 !== `15px` || value7 !== `blue`) {
+//     colorDiv.style.fontSize = `15px`;
+//     colorDiv.style.justifyContent = `left`;
+//     colorDiv.style.backgroundColor = `blue`;
+//     colorDiv.style.setProperty("width", "150px");
+//   } else {
+//     console.log(`shit`);
+//   }
+// });
+
+
+
+
 
 // -----------------------------------------------------------
 
