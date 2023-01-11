@@ -11,21 +11,17 @@ const horTop = document.getElementById("horTop");
 const horMid = document.getElementById("horMid");
 const horBot = document.getElementById("horBot");
 
-const hmStyle = window.getComputedStyle(horMid);
-const hmDisplay = hmStyle.getPropertyValue(`display`);
-console.log(hmDisplay);
-
-
-const linesID = [verLeft, verCen, verRight, horTop, horMid, horBot, crossLine1, crossLine2];
-const styleLines = [];
-const styleDisplay = [];
-
-for (let i = 0; i < 8; i++) {
-  styleLines[i] = window.getComputedStyle(linesID[i]);
-  styleDisplay[i] = styleLines[i].getPropertyValue(`display`);
-}
-
-
+const linesID = [
+  verLeft,
+  verCen,
+  verRight,
+  horTop,
+  horMid,
+  horBot,
+  crossLine1,
+  crossLine2,
+];
+const linesDisplay = [];
 
 let mySquare0 = document.querySelectorAll(".square");
 mySquare0 = Array.from(mySquare0);
@@ -40,7 +36,7 @@ for (let i = 1; i < 10; i++) {
   mySquare[i] = mySquare0[i - 1];
 }
 
-const checkWinCross = function(a, b, c) {
+const checkWinCross = function (a, b, c) {
   if (
     mySquare[a].classList.contains(`bi-x-lg`) &&
     mySquare[b].classList.contains(`bi-x-lg`) &&
@@ -49,9 +45,9 @@ const checkWinCross = function(a, b, c) {
     crossPlayer.innerHTML = `WIN!`;
     return true;
   }
-}
+};
 
-const checkWincircle = function(a, b, c) {
+const checkWincircle = function (a, b, c) {
   if (
     mySquare[a].classList.contains(`bi-circle`) &&
     mySquare[b].classList.contains(`bi-circle`) &&
@@ -60,16 +56,11 @@ const checkWincircle = function(a, b, c) {
     circlePlayer.innerHTML = `WIN!`;
     return true;
   }
-}
-
+};
 
 mySquare.forEach((el) => {
-    el.addEventListener("click", showIcon, once);
-  
+  el.addEventListener("click", showIcon, once);
 });
-
-
-
 
 function showIcon(X) {
   counter % 2 === 0
@@ -77,7 +68,7 @@ function showIcon(X) {
     : X.target.classList.add(`bi-x-lg`);
   console.log(counter);
   counter++;
-  
+
   if (checkWinCross(1, 2, 3)) {
     horTop.style.display = `block`;
   } else if (checkWinCross(4, 5, 6)) {
@@ -94,8 +85,6 @@ function showIcon(X) {
     crossLine2.style.display = `block`;
   } else if (checkWinCross(3, 5, 7)) {
     crossLine1.style.display = `block`;
-
-
   } else if (checkWincircle(1, 2, 3)) {
     horTop.style.display = `block`;
   } else if (checkWincircle(4, 5, 6)) {
@@ -114,12 +103,16 @@ function showIcon(X) {
     crossLine1.style.display = `block`;
   }
 
-  console.log(styleDisplay[0]);
+  for (let i = 0; i < 8; i++) {
+    linesDisplay[i] = linesID[i].style.display;
+  }
 
-  // if (styleDisplay.includes(`block`)) {
-  //   console.log(`block!!!!!!!!!!!!`);
-  // }
-
+  if (linesDisplay.includes(`block`)) {
+    mySquare.forEach((el) => {
+      el.removeEventListener("click", showIcon);
+    });
+    console.log(`ENDGAME`);
+  }
 }
 
 // mySquare.forEach(el => {
@@ -137,9 +130,6 @@ function showIcon(X) {
 // ---------------------------- MY DIV COLOR ----------------------------
 // ---------------------------- MY DIV COLOR ----------------------------
 // ---------------------------- MY DIV COLOR ----------------------------
-
-
-
 
 // const colorDiv = document.getElementById("colorDiv");
 // const colorDivStyle = window.getComputedStyle(colorDiv);
@@ -169,10 +159,6 @@ function showIcon(X) {
 //     console.log(`shit`);
 //   }
 // });
-
-
-
-
 
 // -----------------------------------------------------------
 
