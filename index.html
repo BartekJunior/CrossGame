@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game</title>
+    <title>Cross Game Two</title>
 
     <!-- BOOTSTRAP 5.2.3 -->
     <link
@@ -28,12 +28,20 @@
 
     <!-- MINE CSS -->
     <link rel="stylesheet" href="./styles.css" />
+
+    <!-- FONT AWESOME  -->
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="game-area">
+    <div class="container-game">
+      <div class="player">
+        <h2>Player 1</h2>
+        <div class="player-number" id="crossPlayer">
+          <i class="bi bi-x-lg"></i>
+        </div>
+      </div>
 
+      <div class="game-area">
         <div class="to-right" id="crossLine1"></div>
         <div class="to-left" id="crossLine2"></div>
 
@@ -45,59 +53,21 @@
         <div class="hor" id="horMid"></div>
         <div class="hor" id="horBot"></div>
 
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(1), this.onclick=null">
-            <i class="bi bi-circle" id="circle1"></i>
-            <i class="bi bi-x-lg" id="cross1"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(2), this.onclick=null">
-            <i class="bi bi-circle" id="circle2"></i>
-            <i class="bi bi-x-lg" id="cross2"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(3), this.onclick=null">
-            <i class="bi bi-circle" id="circle3"></i>
-            <i class="bi bi-x-lg" id="cross3"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(4), this.onclick=null">
-            <i class="bi bi-circle" id="circle4"></i>
-            <i class="bi bi-x-lg" id="cross4"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(5), this.onclick=null">
-            <i class="bi bi-circle" id="circle5"></i>
-            <i class="bi bi-x-lg" id="cross5"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(6), this.onclick=null">
-            <i class="bi bi-circle" id="circle6"></i
-            ><i class="bi bi-x-lg" id="cross6"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(7), this.onclick=null">
-            <i class="bi bi-circle" id="circle7"></i>
-            <i class="bi bi-x-lg" id="cross7"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(8), this.onclick=null">
-            <i class="bi bi-circle" id="circle8"></i>
-            <i class="bi bi-x-lg" id="cross8"></i>
-          </button>
-        </div>
-        <div class="square">
-          <button class="btnX" onclick="changeDisplay(9), this.onclick=null">
-            <i class="bi bi-circle" id="circle9"></i>
-            <i class="bi bi-x-lg" id="cross9"></i>
-          </button>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+        <div class="square bi"></div>
+      </div>
+
+      <div class="player">
+        <h2>Player 2</h2>
+        <div class="player-number" id="circlePlayer">
+          <i class="bi bi-circle"></i>
         </div>
       </div>
     </div>
@@ -111,12 +81,9 @@
       <div class="counter" id="counterRed">Counter Red</div>
       <div class="counter" id="counterGreen">Counter Green</div>
 
-
-
-      <div class="" id="colorDiv">colorDiv</div>
-      <div id="madafaka">Hello</div>
+      <div class="bi bi-x-lg" id="colorDiv">colorDiv</div>
+      <i class="bi bi-x-lg" id="cross2"></i>
     </div>
-
 
     <script src="script.js"></script>
   </body>

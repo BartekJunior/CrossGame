@@ -11,143 +11,108 @@ const horTop = document.getElementById("horTop");
 const horMid = document.getElementById("horMid");
 const horBot = document.getElementById("horBot");
 
-const myCircle = [];
+let mySquare0 = document.querySelectorAll(".square");
+mySquare0 = Array.from(mySquare0);
+const crossPlayer = document.getElementById(`crossPlayer`);
+const circlePlayer = document.getElementById(`circlePlayer`);
+
+const mySquare = [];
+const once = { once: true };
+let counter = 1;
+
 for (let i = 1; i < 10; i++) {
-  myCircle[i] = document.getElementById("circle" + i);
+  mySquare[i] = mySquare0[i - 1];
 }
 
-const myCross = [];
-for (let i = 1; i < 10; i++) {
-  myCross[i] = document.getElementById("cross" + i);
-}
 
-let count = 0;
-const elements = document.querySelectorAll(".square");
 
-elements.forEach((el) => {
-  el.addEventListener("click", function () {
-    console.log(count);
 
-    if (
-      (window.getComputedStyle(myCircle[2]).display === `block` &&
-        window.getComputedStyle(myCircle[5]).display === `block` &&
-        window.getComputedStyle(myCircle[8]).display === `block`) ||
-      (window.getComputedStyle(myCross[2]).display === `block` &&
-        window.getComputedStyle(myCross[5]).display === `block` &&
-        window.getComputedStyle(myCross[8]).display === `block`)
-    ) {
-      verCen.style.display = "block";
-    } else if (
-      (window.getComputedStyle(myCircle[1]).display === `block` &&
-        window.getComputedStyle(myCircle[4]).display === `block` &&
-        window.getComputedStyle(myCircle[7]).display === `block`) ||
-      (window.getComputedStyle(myCross[1]).display === `block` &&
-        window.getComputedStyle(myCross[4]).display === `block` &&
-        window.getComputedStyle(myCross[7]).display === `block`)
-    ) {
-      verLeft.style.display = "block";
-    } else if (
-      (window.getComputedStyle(myCircle[3]).display === `block` &&
-        window.getComputedStyle(myCircle[6]).display === `block` &&
-        window.getComputedStyle(myCircle[9]).display === `block`) ||
-      (window.getComputedStyle(myCross[3]).display === `block` &&
-        window.getComputedStyle(myCross[6]).display === `block` &&
-        window.getComputedStyle(myCross[9]).display === `block`)
-    ) {
-      verRight.style.display = "block";
-    } else if (
-      (window.getComputedStyle(myCircle[1]).display === `block` &&
-        window.getComputedStyle(myCircle[2]).display === `block` &&
-        window.getComputedStyle(myCircle[3]).display === `block`) ||
-      (window.getComputedStyle(myCross[1]).display === `block` &&
-        window.getComputedStyle(myCross[2]).display === `block` &&
-        window.getComputedStyle(myCross[3]).display === `block`)
-    ) {
-      horTop.style.display = "block";
-    } else if (
-      (window.getComputedStyle(myCircle[4]).display === `block` &&
-        window.getComputedStyle(myCircle[5]).display === `block` &&
-        window.getComputedStyle(myCircle[6]).display === `block`) ||
-      (window.getComputedStyle(myCross[4]).display === `block` &&
-        window.getComputedStyle(myCross[5]).display === `block` &&
-        window.getComputedStyle(myCross[6]).display === `block`)
-    ) {
-      horMid.style.display = "block";
-    } else if (
-      (window.getComputedStyle(myCircle[7]).display === `block` &&
-        window.getComputedStyle(myCircle[8]).display === `block` &&
-        window.getComputedStyle(myCircle[9]).display === `block`) ||
-      (window.getComputedStyle(myCross[7]).display === `block` &&
-        window.getComputedStyle(myCross[8]).display === `block` &&
-        window.getComputedStyle(myCross[9]).display === `block`)
-    ) {
-      horBot.style.display = "block";
-    } else if (
-      (window.getComputedStyle(myCircle[1]).display === `block` &&
-        window.getComputedStyle(myCircle[5]).display === `block` &&
-        window.getComputedStyle(myCircle[9]).display === `block`) ||
-      (window.getComputedStyle(myCross[1]).display === `block` &&
-        window.getComputedStyle(myCross[5]).display === `block` &&
-        window.getComputedStyle(myCross[9]).display === `block`)
-    ) {
-      crossLine2.style.display = "block";
-    } else if (
-      (window.getComputedStyle(myCircle[3]).display === `block` &&
-        window.getComputedStyle(myCircle[5]).display === `block` &&
-        window.getComputedStyle(myCircle[7]).display === `block`) ||
-      (window.getComputedStyle(myCross[3]).display === `block` &&
-        window.getComputedStyle(myCross[5]).display === `block` &&
-        window.getComputedStyle(myCross[7]).display === `block`)
-    ) {
-      crossLine1.style.display = "block";
-    }
-  });
+mySquare.forEach((el) => {
+  el.addEventListener("click", showIcon, once);
+ 
 });
 
-const changeDisplay = function (itemID) {
-  const circle = document.getElementById("circle" + itemID);
-  const cross = document.getElementById("cross" + itemID);
-
-  if (count % 2 !== 0) {
-    if (window.getComputedStyle(circle).display === `none`) {
-      circle.style.display = `block`;
-      count = count + 1;
-    }
-  } else {
-    if (window.getComputedStyle(cross).display === `none`) {
-      cross.style.display = `block`;
-      count++;
-    }
+function checkWinCross(a, b, c) {
+  if (
+    mySquare[a].classList.contains(`bi-x-lg`) &&
+    mySquare[b].classList.contains(`bi-x-lg`) &&
+    mySquare[c].classList.contains(`bi-x-lg`)
+  ) {
+    crossPlayer.innerHTML = `WIN!`;
+    return true;
   }
-};
+}
 
-// Test for Circles display block
+function checkWincircle(a, b, c) {
+  if (
+    mySquare[a].classList.contains(`bi-circle`) &&
+    mySquare[b].classList.contains(`bi-circle`) &&
+    mySquare[c].classList.contains(`bi-circle`)
+  ) {
+    circlePlayer.innerHTML = `WIN!`;
+    return true;
+  }
+}
 
-// document.addEventListener("click", function () {
-//   console.log(window.getComputedStyle(circle2).display);
-//   console.log(window.getComputedStyle(circle5).display);
-//   console.log(window.getComputedStyle(circle8).display);
+function showIcon(X) {
+  counter % 2 === 0
+    ? X.target.classList.add(`bi-circle`)
+    : X.target.classList.add(`bi-x-lg`);
+  console.log(counter);
+  counter++;
+  
+  if (checkWinCross(1, 2, 3)) {
+    horTop.style.display = `block`;
+  } else if (checkWinCross(4, 5, 6)) {
+    horMid.style.display = `block`;
+  } else if (checkWinCross(7, 8, 9)) {
+    horBot.style.display = `block`;
+  } else if (checkWinCross(1, 4, 7)) {
+    verLeft.style.display = `block`;
+  } else if (checkWinCross(2, 5, 8)) {
+    verCen.style.display = `block`;
+  } else if (checkWinCross(3, 6, 9)) {
+    verRight.style.display = `block`;
+  } else if (checkWinCross(1, 5, 9)) {
+    crossLine2.style.display = `block`;
+  } else if (checkWinCross(3, 5, 7)) {
+    crossLine1.style.display = `block`;
 
-//   console.log(
-//     window.getComputedStyle(circle2).display === `block` &&
-//       window.getComputedStyle(circle5).display === `block` &&
-//       window.getComputedStyle(circle8).display === `block`
-//   );
-// });
 
-// STYLE AFTER CLICK ON ELEMENT IS BLOCK!!! WORKS!
+  } else if (checkWincircle(1, 2, 3)) {
+    horTop.style.display = `block`;
+  } else if (checkWincircle(4, 5, 6)) {
+    horMid.style.display = `block`;
+  } else if (checkWincircle(7, 8, 9)) {
+    horBot.style.display = `block`;
+  } else if (checkWincircle(1, 4, 7)) {
+    verLeft.style.display = `block`;
+  } else if (checkWincircle(2, 5, 8)) {
+    verCen.style.display = `block`;
+  } else if (checkWincircle(3, 6, 9)) {
+    verRight.style.display = `block`;
+  } else if (checkWincircle(1, 5, 9)) {
+    crossLine2.style.display = `block`;
+  } else if (checkWincircle(3, 5, 7)) {
+    crossLine1.style.display = `block`;
+  }
+}
 
-// const test = document.getElementById("circle9");
-// const boolean1 = window.getComputedStyle(test).display === `none`;
-// console.log(boolean1);
+// mySquare.forEach(el => {
+//   el.addEventListener('click', function() {
+//     counter % 2 === 0 ? el.classList.add(`bi-circle`) : el.classList.add(`bi-x-lg`);
+//     counter++;
+//   });
+// })
 
-// document.addEventListener("click", function () {
-//   const test = document.getElementById("circle9");
-//   const boolean1 = window.getComputedStyle(test).display === `none`;
-//   console.log(boolean1);
-// });
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
+// ------------------------------------------------------------------------
 
-// -------------- MY BELLS --------------
+// ---------------------------- MY DIV COLOR ----------------------------
+// ---------------------------- MY DIV COLOR ----------------------------
+// ---------------------------- MY DIV COLOR ----------------------------
+// ---------------------------- MY DIV COLOR ----------------------------
 
 const colorDiv = document.getElementById("colorDiv");
 const colorDivStyle = window.getComputedStyle(colorDiv);
@@ -180,83 +145,33 @@ colorDiv.addEventListener("click", function () {
 
 // -----------------------------------------------------------
 
-// CHANGE DIV COLOR ALMOST WORKING
-
-// let myDivs = document.querySelectorAll(".test-div");
-// let myBells = document.querySelectorAll(".bi-bell");
-// myDivs = Array.from(myDivs);
-// myBells = Array.from(myBells);
-
-// const counterPink = document.getElementById('counterPink');
-// const counterRed = document.getElementById('counterRed');
-// const counterGreen = document.getElementById('counterGreen');
-
-// let valuePink = 0;
-// let valueRed = 0;
-// let valueGreen = 0;
-
-// myDivs.forEach((el) => {
-//   el.addEventListener("click", function () {
-//     const myStyle = window.getComputedStyle(el);
-
-//     if (myStyle.getPropertyValue('background-color') === 'rgb(175, 110, 31)') {
-//       el.style.backgroundColor = 'rgb(255, 100, 200)';
-//       console.log(myStyle.getPropertyValue('background-color'));
-
-//     } else if (myStyle.getPropertyValue('background-color') === 'rgb(255, 100, 200)') {
-//       el.style.backgroundColor = 'rgb(255, 50, 50)';
-//       console.log(myStyle.getPropertyValue('background-color'));
-
-//     } else if (myStyle.getPropertyValue('background-color') === 'rgb(255, 50, 50)') {
-//       el.style.backgroundColor = 'rgb(30, 255, 0)';
-//       console.log(myStyle.getPropertyValue('background-color'));
-//     }
-
-//     if (myStyle.getPropertyValue('background-color') === 'rgb(255, 100, 200)') {
-//       valuePink++;
-//     }
-//     if (myStyle.getPropertyValue('background-color') === 'rgb(255, 50, 50)') {
-//       valueRed++;
-//     }
-//     if (myStyle.getPropertyValue('background-color') === 'rgb(30, 255, 0)') {
-//       valueGreen++;
-//     }
-
-//     counterPink.innerHTML = valuePink
-//     counterRed.innerHTML = valueRed;
-//     counterGreen.innerHTML = valueGreen;
-//   });
-// });
-
-
-
-// CHANGE DIV COLOR WORKS!!!!!!!!!!!
+// -------------- MY BELLS --------------
 
 let myDivs = document.querySelectorAll(".test-div");
 let myBells = document.querySelectorAll(".bi-bell");
 myDivs = Array.from(myDivs);
 myBells = Array.from(myBells);
 
-const counterPink = document.getElementById('counterPink');
-const counterRed = document.getElementById('counterRed');
-const counterGreen = document.getElementById('counterGreen');
-
+const counterPink = document.getElementById("counterPink");
+const counterRed = document.getElementById("counterRed");
+const counterGreen = document.getElementById("counterGreen");
 
 myDivs.forEach((el) => {
   el.addEventListener("click", function () {
-
     const myStyle = window.getComputedStyle(el);
 
     if (myStyle.getPropertyValue("background-color") === "rgb(175, 110, 31)") {
       el.classList.add("pink-class");
       console.log(myStyle.getPropertyValue("background-color"));
-
-    } else if (myStyle.getPropertyValue("background-color") === "rgb(255, 100, 200)") {
+    } else if (
+      myStyle.getPropertyValue("background-color") === "rgb(255, 100, 200)"
+    ) {
       el.classList.add("red-class");
       el.classList.remove("pink-class");
       console.log(myStyle.getPropertyValue("background-color"));
-
-    } else if (myStyle.getPropertyValue("background-color") === "rgb(255, 50, 50)") {
+    } else if (
+      myStyle.getPropertyValue("background-color") === "rgb(255, 50, 50)"
+    ) {
       el.classList.add("green-class");
       el.classList.remove("red-class");
       console.log(myStyle.getPropertyValue("background-color"));
@@ -266,7 +181,6 @@ myDivs.forEach((el) => {
     counterGreen.innerHTML = document.querySelectorAll(".green-class").length;
   });
 });
-
 
 // ---------------------------------------------------------------
 
