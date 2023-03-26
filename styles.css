@@ -176,9 +176,7 @@ body {
 .test-div {
   background-color: rgb(175, 110, 31);
   width: 100px;
-  min-height: 52px;
   height: min-content;
-  text-align: center;
 }
 
 #priority .bi-bell {
